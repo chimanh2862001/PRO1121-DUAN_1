@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.nav_save:
                     fragment = new FragmentLuuActivity();
                     break;
+                case R.id.googleMap:
+                    fragment = new MapsFragmentGoolge();
+                    break;
             }
 
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();

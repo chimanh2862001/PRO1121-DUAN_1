@@ -22,7 +22,7 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="410dp"
-                    android:layout_height="240dp"
+                    android:layout_height="200dp"
                     android:src="@drawable/header" />
             </LinearLayout>
 
@@ -41,7 +41,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName"
+                        android:id="@+id/edtTim"
                         android:layout_width="320dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -50,7 +50,7 @@
                         android:textColor="#C50EE4" />
 
                     <ImageView
-                        android:id="@+id/imageView2"
+                        android:id="@+id/imgSearch"
                         android:layout_width="70dp"
                         android:layout_height="45dp"
                         android:layout_weight="1"
@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:id="@+id/imageView3"
+                            android:id="@+id/imgtimchitiet"
                             android:layout_width="125dp"
                             android:layout_height="75dp"
                             android:layout_weight="1"
@@ -154,7 +154,6 @@
                 android:background="@drawable/border"
                 android:layout_width="390dp"
                 android:layout_height="265dp">
-
 
                 <LinearLayout
                     android:layout_margin="15dp"
@@ -304,8 +303,44 @@
 
                 </LinearLayout>
 
-
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:text="Phòng Trọ Nổi Bật"
+                    android:textSize="22dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/border"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <GridView
+                        android:numColumns="2"
+                        android:layout_marginLeft="6dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/listds"
+                        android:layout_width="match_parent"
+                        android:layout_height="700dp"/>
+
+                </LinearLayout>
+
+            </ScrollView>
 
 
         </LinearLayout>
