@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,11 +88,11 @@ public class MapsFragmentGoolge extends Fragment {
                     }else {
                         for (DangTin s:dangTinList){
                             if (s.TieuDe.equals(tim)|| s.QuanHuyen.equals(tim)|| s.ThanhPho.equals(tim)){
+                                map.clear();
                                 LatLng sydney = new LatLng(s.KinhDo, s.ViDo);
                                 map.addMarker(new MarkerOptions().position(sydney).title(s.TieuDe));
                                 map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-                            }else {
-                                map.clear();
+
                             }
                         }
 

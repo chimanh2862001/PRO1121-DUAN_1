@@ -3,9 +3,14 @@ package com.example.pro1121_duan;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -46,6 +51,7 @@ public class FragmentTimKiemActivity extends Fragment {
         edtTim=view.findViewById(R.id.edtTim);
         imgSearch=view.findViewById(R.id.imgSearch);
         imgOGhep = view.findViewById(R.id.imageView4);
+        registerForContextMenu(gridView);
 
         imgSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,4 +125,24 @@ public class FragmentTimKiemActivity extends Fragment {
 
         return  view;
     }
+
+    @Override
+    public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
+        getActivity().getMenuInflater().inflate(R.menu.suaxoa,menu);
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo adapterContextMenuInfo= (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()){
+
+        }
+
+        return super.onContextItemSelected(item);
+    }
+
+
 }

@@ -3,9 +3,11 @@ package com.example.pro1121_duan;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -30,6 +32,7 @@ public class ChiTietTro_Googlemap extends FragmentActivity implements OnMapReady
     double kinhdo,vido;
     String loaiPhong, thanhPho, quanHuyen, tenDiaDiem, tenDuong, soNha, moTa, lienHe;
     Integer gia;
+    Button button2;
 
     GridView gridView;
 
@@ -41,6 +44,7 @@ public class ChiTietTro_Googlemap extends FragmentActivity implements OnMapReady
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        button2=findViewById(R.id.button2);
         Intent intent = getIntent();
         tvTitle=findViewById(R.id.tvTitle);
         tvDientich=findViewById(R.id.tvDientich);
@@ -65,7 +69,7 @@ public class ChiTietTro_Googlemap extends FragmentActivity implements OnMapReady
         gia = Integer.parseInt(String.valueOf(intent.getExtras().getInt("Gia")));
 
         moTa = intent.getExtras().getString("MoTa");
-        lienHe = intent.getExtras().getString("LienHe");
+        lienHe ="tel:"+intent.getExtras().getString("LienHe");
 
         Integer dientich=Integer.parseInt(String.valueOf(intent.getExtras().getInt("Dientich")));
         Integer phongngu=Integer.parseInt(String.valueOf(intent.getExtras().getInt("Phongngu")));
@@ -73,6 +77,8 @@ public class ChiTietTro_Googlemap extends FragmentActivity implements OnMapReady
 
         Double kinhdo1=Double.parseDouble(String.valueOf(intent.getExtras().getDouble("Kinhdo")));
         Double vido1=Double.parseDouble(String.valueOf(intent.getExtras().getDouble("Vido")));
+
+
 
         kinhdo = kinhdo1;
         vido = vido1;
@@ -113,6 +119,15 @@ public class ChiTietTro_Googlemap extends FragmentActivity implements OnMapReady
                 tvMucGia.setText("Mức Giá: "+gia);
                 tvngayDang.setText("?/?/?");
                 tvDiaChi.setText(thanhPho + ", " + quanHuyen + ", " + tenDuong + ", " + soNha);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                  Intent intent1=new Intent(Intent.ACTION_DIAL);
+                  intent1.setData(Uri.parse(lienHe));
+                startActivity(intent1);
             }
         });
 
